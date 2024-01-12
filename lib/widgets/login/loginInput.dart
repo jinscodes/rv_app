@@ -26,6 +26,11 @@ class LoginInput extends StatelessWidget {
           ),
           TextField(
             decoration: InputDecoration(
+              hintText: "Enter $title",
+              hintStyle: TextStyle(
+                color: Colors.black.withOpacity(0.3),
+                fontSize: 14,
+              ),
               enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: Color(0xFFC3C3C3),
