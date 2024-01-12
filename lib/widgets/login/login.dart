@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rv_app/widgets/signup/signup.dart';
 
 import 'loginInput.dart';
 
@@ -61,7 +62,13 @@ class LogIn extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Signup(),
+                              ));
+                        },
                         child: const Text(
                           "sign up",
                         ),
