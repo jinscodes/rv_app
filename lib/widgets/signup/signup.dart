@@ -49,13 +49,13 @@ class Signup extends StatelessWidget {
                         foregroundColor: const Color(0x00cbcbcb),
                         backgroundColor: const Color(0xFFF1F1F1),
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 150,
+                          horizontal: 155,
                           vertical: 20,
                         ),
                       ),
                       onPressed: () {},
                       child: const Text(
-                        "Log in",
+                        "Next",
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: "Itim",

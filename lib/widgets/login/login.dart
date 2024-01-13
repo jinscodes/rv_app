@@ -3,8 +3,16 @@ import 'package:rv_app/widgets/signup/signup.dart';
 
 import 'loginInput.dart';
 
-class LogIn extends StatelessWidget {
+class LogIn extends StatefulWidget {
   const LogIn({super.key});
+
+  @override
+  State<LogIn> createState() => _LogInState();
+}
+
+class _LogInState extends State<LogIn> {
+  TextEditingController fname = TextEditingController();
+  TextEditingController lname = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -46,14 +54,16 @@ class LogIn extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const LoginInput(
+                      LoginInput(
                         title: "id",
+                        controller: fname,
                       ),
                       const SizedBox(
                         height: 18,
                       ),
-                      const LoginInput(
+                      LoginInput(
                         title: "pw",
+                        controller: lname,
                       ),
                       TextButton(
                         style: TextButton.styleFrom(
@@ -92,7 +102,10 @@ class LogIn extends StatelessWidget {
                             horizontal: 150,
                             vertical: 20,
                           )),
-                      onPressed: () {},
+                      onPressed: () {
+                        print("fname: $fname");
+                        print("lname: $lname");
+                      },
                       child: const Text(
                         "Log in",
                         style: TextStyle(
@@ -110,5 +123,19 @@ class LogIn extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class Login extends StatefulWidget {
+  const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }

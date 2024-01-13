@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class LoginInput extends StatelessWidget {
+  final TextEditingController? controller;
   final String title;
 
   const LoginInput({
     super.key,
     required this.title,
+    this.controller,
   });
 
   @override
@@ -25,6 +27,7 @@ class LoginInput extends StatelessWidget {
             ),
           ),
           TextField(
+            controller: controller,
             decoration: InputDecoration(
               hintText: "Enter $title",
               hintStyle: TextStyle(
