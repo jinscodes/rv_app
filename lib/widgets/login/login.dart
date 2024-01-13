@@ -11,8 +11,10 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
-  TextEditingController fname = TextEditingController();
-  TextEditingController lname = TextEditingController();
+  TextEditingController fname =
+      TextEditingController().text as TextEditingController;
+  TextEditingController lname =
+      TextEditingController().text as TextEditingController;
 
   @override
   Widget build(BuildContext context) {
@@ -103,8 +105,12 @@ class _LogInState extends State<LogIn> {
                             vertical: 20,
                           )),
                       onPressed: () {
-                        print("fname: $fname");
-                        print("lname: $lname");
+                        try {
+                          print("fname: ${fname.text}");
+                          print("lname:  ${lname.text}");
+                        } catch (e) {
+                          print(e);
+                        }
                       },
                       child: const Text(
                         "Log in",
