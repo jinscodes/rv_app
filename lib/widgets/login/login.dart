@@ -12,15 +12,23 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
-  TextEditingController fname = TextEditingController();
-  TextEditingController lname = TextEditingController();
+  TextEditingController id = TextEditingController();
+  TextEditingController pw = TextEditingController();
 
-  Future<String> fetchAPI() async {
+  Future fetchAPI() async {
     Dio dio = Dio();
 
-    var res = await dio.get("http://localhost:8080/");
-    print(res.data);
+    Response res;
 
+    res = await dio.post(
+      "http://localhost:8080/login",
+      data: {
+        "id": id.text,
+        "pw": pw.text,
+      },
+    );
+
+    print(res);
     return res.data;
   }
 
@@ -66,14 +74,14 @@ class _LogInState extends State<LogIn> {
                     children: [
                       LoginInput(
                         title: "id",
-                        controller: fname,
+                        controller: id,
                       ),
                       const SizedBox(
                         height: 18,
                       ),
                       LoginInput(
                         title: "pw",
-                        controller: lname,
+                        controller: pw,
                       ),
                       TextButton(
                         style: TextButton.styleFrom(
@@ -114,8 +122,8 @@ class _LogInState extends State<LogIn> {
                           )),
                       onPressed: () {
                         try {
-                          print("fname: ${fname.text}");
-                          print("lname:  ${lname.text}");
+                          print("fname: ${id.text}");
+                          print("lname:  ${pw.text}");
                           fetchAPI();
                         } catch (e) {
                           print(e);
