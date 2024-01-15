@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rv_app/widgets/signup/signup.dart';
 
@@ -11,10 +12,17 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
-  TextEditingController fname =
-      TextEditingController().text as TextEditingController;
-  TextEditingController lname =
-      TextEditingController().text as TextEditingController;
+  TextEditingController fname = TextEditingController();
+  TextEditingController lname = TextEditingController();
+
+  Future<String> fetchAPI() async {
+    Dio dio = Dio();
+
+    var res = await dio.get("http://localhost:8080/");
+    print(res.data);
+
+    return res.data;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +116,7 @@ class _LogInState extends State<LogIn> {
                         try {
                           print("fname: ${fname.text}");
                           print("lname:  ${lname.text}");
+                          fetchAPI();
                         } catch (e) {
                           print(e);
                         }
