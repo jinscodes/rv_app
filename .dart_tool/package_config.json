@@ -32,6 +32,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "cookie_jar",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/cookie_jar-4.0.8",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "cupertino_icons",
       "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.6",
       "packageUri": "lib/",
@@ -40,6 +46,12 @@
     {
       "name": "dio",
       "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/dio-5.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "dio_cookie_manager",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/dio_cookie_manager-3.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     },
@@ -158,6 +170,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "universal_io",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/universal_io-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/vector_math-2.1.4",
       "packageUri": "lib/",
@@ -176,7 +194,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-01-15T08:08:27.344006Z",
+  "generated": "2024-01-15T13:06:15.190383Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }

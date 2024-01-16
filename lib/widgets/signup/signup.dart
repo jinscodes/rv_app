@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rv_app/widgets/login/loginInput.dart';
+import 'package:rv_app/widgets/login/login_input.dart';
 
 class Signup extends StatelessWidget {
   const Signup({super.key});

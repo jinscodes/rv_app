@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:rv_app/widgets/login/square_title.dart';
 import 'package:rv_app/widgets/signup/signup.dart';
 
-import 'loginInput.dart';
+import 'login_input.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -18,9 +19,7 @@ class _LogInState extends State<LogIn> {
   Future fetchAPI() async {
     Dio dio = Dio();
 
-    Response res;
-
-    res = await dio.post(
+    Response res = await dio.post(
       "http://localhost:8080/login",
       data: {
         "id": id.text,
@@ -31,6 +30,8 @@ class _LogInState extends State<LogIn> {
     print(res);
     return res.data;
   }
+
+  double count = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class _LogInState extends State<LogIn> {
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 40,
-                vertical: 210,
+                vertical: 180,
               ),
               child: Column(
                 children: [
@@ -104,7 +105,7 @@ class _LogInState extends State<LogIn> {
                     ],
                   ),
                   const SizedBox(
-                    height: 60,
+                    height: 30,
                   ),
                   ButtonTheme(
                     height: 50,
@@ -139,6 +140,20 @@ class _LogInState extends State<LogIn> {
                       ),
                     ),
                   ),
+                  Row(
+                    children: [
+                      const SquareTitle(imgPath: "lib/img/google.png"),
+                      IconButton(
+                        icon: const Icon(
+                          Icons.g_mobiledata_rounded,
+                          size: 70,
+                        ),
+                        onPressed: () {
+                          print("clicked");
+                        },
+                      )
+                    ],
+                  )
                 ],
               ),
             ),
