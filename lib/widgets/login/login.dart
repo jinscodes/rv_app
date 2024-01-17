@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:rv_app/widgets/login/square_title.dart';
 import 'package:rv_app/widgets/signup/signup.dart';
 
 import 'login_input.dart';
@@ -19,16 +18,20 @@ class _LogInState extends State<LogIn> {
   Future fetchAPI() async {
     Dio dio = Dio();
 
-    Response res = await dio.post(
-      "http://localhost:8080/login",
-      data: {
-        "id": id.text,
-        "pw": pw.text,
-      },
-    );
-
-    print(res);
-    return res.data;
+    Response res;
+    try {
+      res = await dio.post(
+        "http://localhost:8080/login",
+        data: {
+          "id": id.text,
+          "pw": pw.text,
+        },
+      );
+      print(res.data);
+    } catch (e) {
+      // ignore: use_build_context_synchronously
+      showSnackBar(context);
+    }
   }
 
   double count = 0.0;
@@ -45,7 +48,7 @@ class _LogInState extends State<LogIn> {
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 40,
-                vertical: 180,
+                vertical: 210,
               ),
               child: Column(
                 children: [
@@ -140,20 +143,6 @@ class _LogInState extends State<LogIn> {
                       ),
                     ),
                   ),
-                  Row(
-                    children: [
-                      const SquareTitle(imgPath: "lib/img/google.png"),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.g_mobiledata_rounded,
-                          size: 70,
-                        ),
-                        onPressed: () {
-                          print("clicked");
-                        },
-                      )
-                    ],
-                  )
                 ],
               ),
             ),
@@ -176,4 +165,19 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return const Placeholder();
   }
+}
+
+void showSnackBar(BuildContext context) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(
+      content: Text(
+        "Login failed!",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 16,
+        ),
+      ),
+      duration: Duration(seconds: 2),
+    ),
+  );
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "203258831706",
+    "project_id": "rvapp-358c4",
+    "storage_bucket": "rvapp-358c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203258831706:android:9478f51a8c173d78254963",
+        "android_client_info": {
+          "package_name": "com.example.rv_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoSRx7fOsmbvOnwdFnsP6zkH0xkfwCD4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
