@@ -127,7 +127,7 @@ class _LogInState extends State<LogIn> {
                       onPressed: () {
                         try {
                           print("fname: ${id.text}");
-                          print("lname:  ${pw.text}");
+                          print("lname: ${pw.text}");
                           fetchAPI();
                         } catch (e) {
                           print(e);
