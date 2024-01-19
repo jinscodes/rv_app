@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rv_app/widgets/signup/signup.dart';
@@ -5,15 +7,33 @@ import 'package:rv_app/widgets/signup/signup.dart';
 import 'login_input.dart';
 
 class LogIn extends StatefulWidget {
-  const LogIn({super.key});
+  final dynamic jwtToken;
+
+  const LogIn({
+    super.key,
+    required this.jwtToken,
+  });
 
   @override
-  State<LogIn> createState() => _LogInState();
+  State<LogIn> createState() => _LogInState(jwtToken: jwtToken);
 }
 
 class _LogInState extends State<LogIn> {
   TextEditingController id = TextEditingController();
   TextEditingController pw = TextEditingController();
+  final dynamic jwtToken;
+
+  _LogInState({required this.jwtToken});
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    if (jwtToken) {
+      print(jwtToken);
+    }
+  }
 
   Future fetchAPI() async {
     Dio dio = Dio();
@@ -28,6 +48,7 @@ class _LogInState extends State<LogIn> {
         },
       );
       print(res.data);
+      print(res.data["jwtToken"]);
     } catch (e) {
       // ignore: use_build_context_synchronously
       showSnackBar(context);

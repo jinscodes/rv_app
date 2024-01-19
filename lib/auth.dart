@@ -4,8 +4,15 @@ import 'package:flutter/material.dart';
 import 'widgets/home/home.dart';
 import 'widgets/login/login.dart';
 
-class Auth extends StatelessWidget {
+class Auth extends StatefulWidget {
   const Auth({super.key});
+
+  @override
+  State<Auth> createState() => _AuthState();
+}
+
+class _AuthState extends State<Auth> {
+  late dynamic jwtToken;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +23,9 @@ class Auth extends StatelessWidget {
           if (snapshot.hasData) {
             return const Home();
           } else {
-            return const LogIn();
+            return LogIn(
+              jwtToken: jwtToken,
+            );
           }
         },
       ),
