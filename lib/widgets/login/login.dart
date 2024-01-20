@@ -7,12 +7,9 @@ import 'package:rv_app/widgets/signup/signup.dart';
 import 'login_input.dart';
 
 class LogIn extends StatefulWidget {
-  final dynamic jwtToken;
+  final String jwtToken;
 
-  const LogIn({
-    super.key,
-    required this.jwtToken,
-  });
+  const LogIn({super.key, required this.jwtToken});
 
   @override
   State<LogIn> createState() => _LogInState(jwtToken: jwtToken);
@@ -21,19 +18,9 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   TextEditingController id = TextEditingController();
   TextEditingController pw = TextEditingController();
-  final dynamic jwtToken;
+  final String jwtToken;
 
   _LogInState({required this.jwtToken});
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    if (jwtToken) {
-      print(jwtToken);
-    }
-  }
 
   Future fetchAPI() async {
     Dio dio = Dio();

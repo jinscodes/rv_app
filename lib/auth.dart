@@ -12,7 +12,7 @@ class Auth extends StatefulWidget {
 }
 
 class _AuthState extends State<Auth> {
-  late dynamic jwtToken;
+  final String jwtToken = "";
 
   @override
   Widget build(BuildContext context) {
