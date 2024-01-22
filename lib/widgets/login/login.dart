@@ -7,20 +7,23 @@ import 'package:rv_app/widgets/signup/signup.dart';
 import 'login_input.dart';
 
 class LogIn extends StatefulWidget {
-  final String jwtToken;
+  late String jwtToken;
+  final Function setJwtToken;
 
-  const LogIn({super.key, required this.jwtToken});
+  LogIn({super.key, required this.jwtToken, required this.setJwtToken});
 
   @override
-  State<LogIn> createState() => _LogInState(jwtToken: jwtToken);
+  State<LogIn> createState() =>
+      _LogInState(jwtToken: jwtToken, setJwtToken: setJwtToken);
 }
 
 class _LogInState extends State<LogIn> {
   TextEditingController id = TextEditingController();
   TextEditingController pw = TextEditingController();
-  final String jwtToken;
+  String jwtToken;
+  Function setJwtToken;
 
-  _LogInState({required this.jwtToken});
+  _LogInState({required this.jwtToken, required this.setJwtToken});
 
   Future fetchAPI() async {
     Dio dio = Dio();
@@ -34,8 +37,9 @@ class _LogInState extends State<LogIn> {
           "pw": pw.text,
         },
       );
-      print(res.data);
       print(res.data["jwtToken"]);
+
+      setJwtToken(res.data["jwtToken"]);
     } catch (e) {
       // ignore: use_build_context_synchronously
       showSnackBar(context);
@@ -134,8 +138,6 @@ class _LogInState extends State<LogIn> {
                           )),
                       onPressed: () {
                         try {
-                          print("fname: ${id.text}");
-                          print("lname: ${pw.text}");
                           fetchAPI();
                         } catch (e) {
                           print(e);

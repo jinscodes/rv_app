@@ -12,7 +12,13 @@ class Auth extends StatefulWidget {
 }
 
 class _AuthState extends State<Auth> {
-  final String jwtToken = "";
+  late String jwtToken = "";
+
+  setJwtToken(token) {
+    setState(() {
+      jwtToken = token;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +26,13 @@ class _AuthState extends State<Auth> {
       body: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return const Home();
-          } else {
+          if (jwtToken == "") {
             return LogIn(
               jwtToken: jwtToken,
+              setJwtToken: setJwtToken,
             );
+          } else {
+            return const Home();
           }
         },
       ),
