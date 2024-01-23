@@ -37,8 +37,6 @@ class _LogInState extends State<LogIn> {
           "pw": pw.text,
         },
       );
-      print(res.data["jwtToken"]);
-
       setJwtToken(res.data["jwtToken"]);
     } catch (e) {
       // ignore: use_build_context_synchronously
